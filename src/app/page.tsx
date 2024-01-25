@@ -1,10 +1,18 @@
 // "use client"  --> to pass to the client
-export default function Home() {
+
+import { Hero } from "app/components/home/Hero";
+import { MainProducts } from "app/components/home/MainProducts";
+
   //Server Component
+export default function Home() {
+
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Hola mundo</h1>
+
+      <Hero/>
+
+      <MainProducts  />
     </main>
   );
 }

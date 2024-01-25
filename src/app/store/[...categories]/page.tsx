@@ -1,5 +1,5 @@
 
-export interface CategoryProps {
+export interface ICategoryProps {
   params:{
     categories: string[],
 
@@ -7,7 +7,7 @@ export interface CategoryProps {
   searchParams?: string
 }
 
-export default function Category (props: CategoryProps) {
+ const Category = (props: ICategoryProps) => {
   console.log(props)
   const {categories} = props.params
   return (
@@ -16,3 +16,5 @@ export default function Category (props: CategoryProps) {
     </div>
   );
 }
+ export default Category
+

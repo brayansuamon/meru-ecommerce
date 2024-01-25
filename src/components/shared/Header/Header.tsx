@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export interface HeaderProps {
+export interface IHeaderProps {
 }
 
-export function Header (props: HeaderProps) {
+const Header = (props: IHeaderProps) => {
   return (
     <header>
           <nav>
@@ -19,3 +19,5 @@ export function Header (props: HeaderProps) {
         </header>
   );
 }
+export { Header };
+

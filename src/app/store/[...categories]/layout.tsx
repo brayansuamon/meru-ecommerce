@@ -1,9 +1,9 @@
 
-export interface  LayoutProps {
+export interface  ILayoutProps {
   children: React.ReactNode
 }
 
-export default function Layout ({children}: LayoutProps) {
+ const Layout = ({children}: ILayoutProps) => {
   return (
     <main>
       <nav>Categories Navigation</nav>
@@ -11,3 +11,5 @@ export default function Layout ({children}: LayoutProps) {
     </main>
   );
 }
+
+export default Layout
