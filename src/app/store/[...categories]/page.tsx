@@ -1,17 +1,18 @@
 
 export interface CategoryProps {
   params:{
-    category: string
+    categories: string[],
+
   }
+  searchParams?: string
 }
 
 export default function Category (props: CategoryProps) {
-
-  const {category} = props.params
-  console.log(category);
+  console.log(props)
+  const {categories} = props.params
   return (
     <div>
-      Dynamic Category {category}
+      Dynamic Category {categories}
     </div>
   );
 }
