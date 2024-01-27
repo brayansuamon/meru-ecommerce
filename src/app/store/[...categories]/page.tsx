@@ -8,7 +8,7 @@ export interface ICategoryProps {
 }
 
  const Category = (props: ICategoryProps) => {
-  console.log(props)
+  // console.log(props)
   const {categories} = props.params
   return (
     <div>

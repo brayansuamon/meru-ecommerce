@@ -6,21 +6,23 @@ export interface IHeaderProps {
 
 const Header = (props: IHeaderProps) => {
   return (
-    <header className="p-8 flex items-center justify-between">
+    <header className="w-full py-6 bg-orangeMeru">
+        <nav className="mx-auto max-w-[1280px] px-6 flex items-center justify-between">
+
           <div className="w-40 h-8 relative">
-            <Image src="/images/Meru-svg.svg" alt="Logo" fill quality={100} className="object-cover"/>
+          <Link href={'/'}>
+            <Image src="/images/Meru-svg.svg" alt="Logo" fill quality={100} className="object-contain"/>
+            </Link>
           </div>
-          <nav>
-            <ul>
-              <Link href={'/'}>
-              <li>Home</li>
-              </Link>
-              <Link href={'/store'}>
-              <li>Store</li>
-              </Link>
-            </ul>
-          </nav>
-        </header>
+          <div className="w-6 h-6 relative">
+            <Link href={'/store'}>
+            <Image src="/images/Carrito.png" alt="Logo" fill quality={100} className="object-contain"/>
+            </Link>
+
+          </div>
+
+        </nav>
+    </header>
   );
 }
 export { Header };

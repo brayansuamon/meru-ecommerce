@@ -1,5 +1,5 @@
 // "use client"  --> to pass to the client
-
+'use client'
 import { Hero } from "app/components/home/Hero";
 import { MainProducts } from "app/components/home/MainProducts";
 
@@ -8,11 +8,12 @@ export default function Home() {
 
 
   return (
-    <main >
+    <main className="w-full" >
 
       <Hero/>
 
       <MainProducts  />
+
     </main>
   );
 }
