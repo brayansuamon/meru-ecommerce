@@ -1,6 +1,5 @@
 // "use client"  --> to pass to the client
 'use client'
-import { Hero } from "app/components/home/Hero";
 import { MainProducts } from "app/components/home/MainProducts";
 
   //Server Component
@@ -10,7 +9,7 @@ export default function Home() {
   return (
     <main className="w-full" >
 
-      <Hero/>
+      {/* <Hero/> */}
 
       <MainProducts  />
 

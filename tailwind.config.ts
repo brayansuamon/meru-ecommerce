@@ -15,6 +15,12 @@ const config: Config = {
       },
       colors: {
         orangeMeru: "#FF8300",
+        blackMeru: "#000000",
+        whiteMeru: "#FFFFFF",
+        grayMeru: "#A1A1AA",
+        grayLight: "#FAFAFA",
+        grayDescription: "#27272A",
+        greenMeru: "#3FA400",
       },
     },
   },

@@ -1,5 +1,6 @@
 // 'use client'
-import Image from "next/image";
+import { Card } from "app/components/shared/Card";
+import { ContainerMeru } from "app/components/shared/Container";
 import { useEffect, useState } from "react";
 import { Product, getProducts } from "../request/getProducts";
 
@@ -28,29 +29,27 @@ const MainProducts = (props: MainProductsProps) => {
   }, [])
 
 
-    console.log(products, 'products');
-
-
   return (
-    <section>
-      <h3>New Products</h3>
+    <section className="py-14 bg-grayLight">
+      <ContainerMeru>
+
+      <h1 className="text-3xl font-semibold mb-5">Destacados</h1>
+      <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
       {
 
-        products?.map((product, index)=>{
+            products?.map((product)=>{
 
-          const imageSrc = product.image
-
-          return(
-            <article key={product.id}>
-              <p>{product.name}</p>
-              <div>
-              <Image width={30} height={40} src={imageSrc} alt={product.name} />
-              </div>
-
-            </article>
-          )
-        })
+              return(
+                <article key={product.id} className="col-span-1">
+                  <Card  {...product }/>
+                </article>
+              )
+            })
       }
+      </section>
+
+      </ContainerMeru>
+
     </section>
   )
 }
