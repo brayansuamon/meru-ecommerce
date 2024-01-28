@@ -12,7 +12,7 @@ export interface Product {
 const getProducts = async ():Promise<Product[]> => {
   try {
 
-    // const response = await fetch(`${process.env.MERU_ENDPOINT}`)
+    // const response = await fetch(meruUrls.products.all)
     const response = await fetch("https://ornate-scone-f87809.netlify.app/api/products.json")
 
     if (!response.ok) {

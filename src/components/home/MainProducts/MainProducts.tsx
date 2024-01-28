@@ -1,33 +1,37 @@
-// 'use client'
+'use client'
 import { Card } from "app/components/shared/Card";
 import { ContainerMeru } from "app/components/shared/Container";
-import { useEffect, useState } from "react";
-import { Product, getProducts } from "../request/getProducts";
 
 
 type MainProductsProps = {}
 
 
 
-const MainProducts = (props: MainProductsProps) => {
+const MainProducts = async (props: MainProductsProps) => {
 
-  const [products, setProducts] = useState<Product[]>([])
+  // const [products, setProducts] = useState<Product[]>([])
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    const fetchProducts = async () => {
-      try {
-        const productsData = await getProducts()
-        setProducts(productsData)
-      } catch (error) {
-        console.log(error)
-      }
+  //   const fetchProducts = async () => {
+  //     try {
+  //       const productsData = await getProducts()
+  //       setProducts(productsData)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
 
-    }
+  //   }
 
-    fetchProducts()
-  }, [])
+  //   fetchProducts()
+  // }, [])
 
+  //Directly to the service
+  // const products = await getProducts()
+
+  //Ask to the server
+  const response = await fetch('http://localhost:3000/api')
+  const { products } = await response.json()
 
   return (
     <section className="py-14 bg-grayLight">

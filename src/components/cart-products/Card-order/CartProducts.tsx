@@ -1,4 +1,4 @@
-import { Product } from "app/components/home/request/getProducts"
+import { Product } from "app/services/Meru/getProducts"
 import Image from "next/image"
 
 interface CartProductsProps extends Product {}
