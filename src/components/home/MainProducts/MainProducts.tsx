@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import { Card } from "app/components/shared/Card";
 import { ContainerMeru } from "app/components/shared/Container";
 
@@ -29,6 +29,8 @@ const MainProducts = async (props: MainProductsProps) => {
   //Directly to the service
   // const products = await getProducts()
 
+
+
   //Ask to the server
   const response = await fetch('http://localhost:3000/api')
   const { products } = await response.json()
@@ -41,7 +43,7 @@ const MainProducts = async (props: MainProductsProps) => {
       <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
       {
 
-            products?.map((product)=>{
+            products?.map((product: Product)=>{
 
               return(
                 <article key={product.id} className="col-span-1">

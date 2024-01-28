@@ -1,3 +1,4 @@
+import { CartProducts } from "app/components/cart-products/Card-order"
 import { ContainerMeru } from "app/components/shared/Container"
 
 
@@ -7,7 +8,7 @@ const Store = (props: StoreProps) => {
   return (
     <section className="py-14 bg-grayLight">
       <ContainerMeru>
-          {/* <CartProducts /> */}
+          <CartProducts />
           <div></div>
       </ContainerMeru>
     </section>

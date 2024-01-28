@@ -14,9 +14,12 @@ const Header = (props: IHeaderProps) => {
             <Image src="/images/Meru-svg.svg" alt="Logo" fill quality={100} className="object-contain"/>
             </Link>
           </div>
-          <div className="w-6 h-6 relative">
-            <Link href={'/cart'}>
-            <Image src="/images/Carrito.png" alt="Logo" fill quality={100} className="object-contain"/>
+          <div>
+            <Link href={'/cart'} className="relative">
+              <span className="absolute rounded-[50%] w-4 h-4 bg-blackMeru text-whiteMeru flex items-center justify-center text-sm p-3 top-[-12px] right-[-14px] z-10">0</span>
+              <div className="w-6 h-6 relative">
+                <Image src="/images/Carrito.png" alt="Logo" fill quality={100} className="object-contain"/>
+              </div>
             </Link>
 
           </div>

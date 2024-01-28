@@ -1,19 +1,9 @@
 
-export interface Product {
-  id: string
-  name: string
-  price: number
-  description: string
-  image: string
-  units?: number
-}
-
-
 const getProducts = async ():Promise<Product[]> => {
   try {
 
     // const response = await fetch(meruUrls.products.all)
-    const response = await fetch("https://ornate-scone-f87809.netlify.app/api/products.json")
+    const response = await fetch("https://ornate-scone-f87809.netlify.app/api/products.json",/*{cache: 'force-cache'}*/)
 
     if (!response.ok) {
       throw new Error(`Failed to fetch products. Status: ${response.status}`);
@@ -30,5 +20,5 @@ const getProducts = async ():Promise<Product[]> => {
 
 }
 
-export { getProducts }
+export { getProducts };
 
