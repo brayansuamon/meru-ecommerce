@@ -1,7 +1,6 @@
 // 'use client'
 import { Card } from "app/components/shared/Card";
 import { ContainerMeru } from "app/components/shared/Container";
-import { getProducts } from "app/services/Meru";
 
 
 type MainProductsProps = {
@@ -29,11 +28,11 @@ const MainProducts = async (props: MainProductsProps) => {
   // }, [])
 
   //Directly to the service
-  const products = await getProducts()
+  // const products = await getProducts()
 
   //Ask to the server
-  // const response = await fetch('http://localhost:3000/api')
-  // const { products } = await response.json()
+  const response = await fetch('https://main--dazzling-bienenstitch-0ba65d.netlify.app/api')
+  const { products } = await response.json()
 
   return (
     <section className="py-14 bg-grayLight">
