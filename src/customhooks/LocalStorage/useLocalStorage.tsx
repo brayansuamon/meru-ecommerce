@@ -19,7 +19,7 @@ const useLocalStorage = (key : string, initialValue : any) => {
     }
   })
 
-  const setValue = (value : any) => {
+  const setValue = (value : Product) => {
     try {
       // If the passed value is a callback function,
       //  then call it with the existing state.
@@ -28,9 +28,11 @@ const useLocalStorage = (key : string, initialValue : any) => {
       // Retrieve the current value from localStorage
       const storedValue = JSON.parse(window.localStorage.getItem(key) || '[]');
 
-      console.log(storedValue,'storedValue');
+      const  isIncluded = storedValue.some((item: Product) => item.id === valueToStore.id)
 
-      storedValue.push(valueToStore)
+      if(!isIncluded){
+        storedValue.push(valueToStore)
+      }
 
       window.localStorage.setItem(key, JSON.stringify(storedValue))
       setState(storedValue)
