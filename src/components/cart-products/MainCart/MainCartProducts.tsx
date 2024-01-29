@@ -21,7 +21,7 @@ const MainCartProducts = (props: MainCardProps) => {
     addUnit(idToUpdate)
   }
 
-  const totalPrice = storedValue.reduce((sum : number, item : ProductLocal) => sum + (item.price * item.units), 0)
+  const totalPrice = storedValue?.reduce((sum : number, item : ProductLocal) => sum + (item.price * item.units), 0)
 
   return (
     <div>
@@ -31,7 +31,7 @@ const MainCartProducts = (props: MainCardProps) => {
           <h1 className="text-3xl font-semibold mb-5">Carrito</h1>
           <section className="flex flex-col gap-y-6">
           {
-            storedValue.length > 0 &&
+            storedValue?.length > 0 &&
               storedValue.map((item : Product)=>{
                 return (
                 <article key={item.id}>
@@ -41,7 +41,7 @@ const MainCartProducts = (props: MainCardProps) => {
               })
             }
           {
-            storedValue.length > 0 ?
+            storedValue?.length > 0 ?
             (
             <div className="w-full flex flex-col justify-end items-end">
                 <p className="font-semibold">Total : ${totalPrice}</p>

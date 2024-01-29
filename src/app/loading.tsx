@@ -5,8 +5,10 @@ export interface ILoadingProps {
 
 export default function Loading (props: ILoadingProps) {
   return (
-    <section className="mx-auto min-w-1/2 h-full min-h-[200px]">
-        <Image fill src={'/images/Loading2.avif'} alt={'Loading'} className="object-contain"/>
+    <section className="w-full h-full min-h-[900px] flex justify-center items-center">
+      <div className="relative m-auto w-80 h-80">
+      <Image fill src={'/images/Loading2.avif'} alt={'Loading'} className="object-contain"/>
+      </div>
     </section>
   );
 }
