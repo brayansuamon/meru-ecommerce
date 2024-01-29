@@ -21,6 +21,7 @@ const config: Config = {
         grayLight: "#FAFAFA",
         grayDescription: "#27272A",
         greenMeru: "#3FA400",
+        blueMeru: "#4075D0",
       },
     },
   },

@@ -29,7 +29,7 @@ const Card = (props: CardProps) => {
         <p className="text-grayDescription font-semibold text-sm">Desde</p>
         <p className="text-blackMeru text-2xl font-semibold">${price}</p>
         <p className="text-base text-grayDescription">{name}</p>
-        <button onClick={saveToLocalStorage} className="mt-3 text-greenMeru font-semibold text-sm">Agregar al carrito</button>
+        <button onClick={saveToLocalStorage} className="mt-3 text-greenMeru hover:text-blueMeru font-semibold text-sm">Agregar al carrito</button>
       </div>
     </article>
   )
