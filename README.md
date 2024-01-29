@@ -9,7 +9,7 @@ First, select a folder in your directory and run in the Terminal the next comman
 git clone git@github.com:brayansuamon/meru-ecommerce.git
 ```
 
-Second, Install the dependencies to run the project
+Second, go to the new folder meru-ecommerce, and install the dependencies to run the project
 
 ```
 npm install
