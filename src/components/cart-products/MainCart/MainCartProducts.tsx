@@ -1,14 +1,12 @@
 'use client'
-import { CartProducts } from "app/components/cart-products/Card-order";
-import { ContainerMeru } from "app/components/shared/Container";
-import { useLocalStorage } from "app/customhooks/LocalStorage";
-import { ProductLocal } from "app/customhooks/LocalStorage/useLocalStorage";
 
+import { ContainerMeru } from "app/components/shared/Container"
+import { ProductLocal, useLocalStorage } from "app/customhooks/LocalStorage/useLocalStorage"
+import { CartProducts } from "../Card-order"
 
-type StoreProps = {}
+type MainCardProps = {}
 
-const Store = (props: StoreProps) => {
-
+const MainCartProducts = (props: MainCardProps) => {
   const {state:storedValue, deleteValue, deleteUnit, addUnit, emptyCart} = useLocalStorage('carrito')
 
   const handleDeleteValue = (idToDelete : string)  =>  {
@@ -62,4 +60,5 @@ const Store = (props: StoreProps) => {
   )
 }
 
-export default Store
+export { MainCartProducts }
+
