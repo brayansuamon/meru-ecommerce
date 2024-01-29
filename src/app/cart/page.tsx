@@ -24,7 +24,7 @@ const Store = (props: StoreProps) => {
 
   return (
     <div>
-      {/* <Header stateCart={storedValue.length} /> */}
+         {/* <Header stateCart={storedValue.length} /> */}
       <section className="py-14 bg-grayLight  min-h-[800px]">
         <ContainerMeru>
           <h1 className="text-3xl font-semibold mb-5">Carrito</h1>
