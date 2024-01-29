@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-type ProductLocal = Omit<Product, 'units'> & {
+export type ProductLocal = Omit<Product, 'units'> & {
   units: number
 }
 
