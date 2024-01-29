@@ -1,11 +1,14 @@
-import { Product } from "app/services/Meru/getProducts"
-import Image from "next/image"
+import { useLocalStorage } from "app/customhooks/LocalStorage";
+import Image from "next/image";
 
 interface CartProductsProps extends Product {}
 
 const CartProducts = (props: CartProductsProps) => {
 
-  const { image, name, price} =  props
+  const [value, setValue] = useLocalStorage('carrito', [])
+
+
+  const { image, name, price, units} =  props
 
   return (
    <article className="border rounded-lg">
@@ -20,18 +23,18 @@ const CartProducts = (props: CartProductsProps) => {
     </div>
     <div className="px-6 py-3 flex gap-2 w-full justify-between">
       <div className="relative w-20 h-20 bg-gray-200" >
-        <Image fill src={image} alt={name} />
+        <Image fill src={image} alt={'Image'} />
       </div>
       <div className="w-full text-left">
-        <p>{name}Name</p>
-        <p className="text-2xl font-semibold">{price} Price</p>
+        <p>{name}</p>
+        <p className="text-2xl font-semibold">{price}</p>
       </div>
       <div className="flex flex-col gap-y-3">
         <div className="relative w-full flex justify-end">
           <Image width={20} height={20} src={'/images/Close.svg'} alt={'close'} />
         </div>
         <div className="flex items-center justify-center text-greenMeru">
-          <div className="px-4">1</div>
+          <div className="px-4">{units}</div>
           <div className="relative w-5 h-5">
              <Image fill src={'/images/AddUnit.svg'} alt={'Add Unit'}/>
           </div>
@@ -42,5 +45,5 @@ const CartProducts = (props: CartProductsProps) => {
   )
 }
 
-export { CartProducts }
+export { CartProducts };
 

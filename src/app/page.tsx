@@ -5,13 +5,11 @@ import { MainProducts } from "app/components/home/MainProducts";
   //Server Component
 export default function Home() {
 
-
   return (
     <main className="w-full" >
+     {/* <Hero/> */}
 
-      {/* <Hero/> */}
-
-      <MainProducts  />
+         <MainProducts  />
 
     </main>
   );
