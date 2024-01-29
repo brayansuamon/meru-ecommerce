@@ -1,8 +1,21 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+This project is the e-commerce website created for Meru. Follow the next steps to run this project
 
-First, run the development server:
+First, select a folder in your directory and run in the Terminal the next command:
+
+```
+git clone git@github.com:brayansuamon/meru-ecommerce.git
+```
+
+Second, Install the dependencies to run the project
+
+```
+npm install
+```
+
+Third, run the development server:
 
 ```bash
 npm run dev
