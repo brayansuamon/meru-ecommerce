@@ -15,31 +15,25 @@ const useLocalStorage = (key : string, initialValue : any) => {
       return value ? JSON.parse(value) : initialValue
     } catch (error) {
       console.log(error)
+      return initialValue
     }
   })
 
   const setValue = (value : any) => {
-    let test: string[]
     try {
       // If the passed value is a callback function,
       //  then call it with the existing state.
       const valueToStore = value instanceof Function ? value(state) : value
 
+      // Retrieve the current value from localStorage
+      const storedValue = JSON.parse(window.localStorage.getItem(key) || '[]');
 
-      if(state === null){
-        test = [ valueToStore ]
-      }else{
-        test = [state, valueToStore]
-      }
+      console.log(storedValue,'storedValue');
 
-      window.localStorage.setItem(key, JSON.stringify(test))
+      storedValue.push(valueToStore)
 
-      console.log(valueToStore, 'valuetostore', state, 'state', test, 'test' );
-
-      setState(test)
-
-      console.log(state, 'after update', test, 'test');
-
+      window.localStorage.setItem(key, JSON.stringify(storedValue))
+      setState(storedValue)
 
     } catch (error) {
       console.log(error)

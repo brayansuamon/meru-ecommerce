@@ -1,6 +1,6 @@
 'use client'
+import { useLocalStorage } from "app/customhooks/LocalStorage"
 import Image from "next/image"
-import { useEffect, useState } from "react"
 
 interface CardProps extends Product {
 }
@@ -9,35 +9,16 @@ interface CardProps extends Product {
 
 const Card = (props: CardProps) => {
 
-   const initialState = window.localStorage.getItem('carrito')
+  //  const initialState = window.localStorage.getItem('carrito')
 
-   const [carrito, setCarrito] = useState([])
-
-  // const [value, setValue] = useLocalStorage('carrito', initialState)
+  const [value, setValue] = useLocalStorage('carrito', [])
 
 
-  // const saveToLocalStorage = (e : any) => {
-  //   e.preventDefault()
-  //   setValue(props)
-  // }
-  useEffect(()=>{
-    const carritoLS = JSON.parse(localStorage.getItem('carrito')) ?? []
-    setCarrito(carritoLS)
-  }, [])
-
-  //  const saveToLocalStorage = (e : any) => {
-  //   e.preventDefault()
-  //   localStorage.setItem('carrito', JSON.stringify(carrito))
-  // }
-  const saveToLocalStorage = (e : any) => {
-      setCarrito((prev)=>[...prev, ...carrito])
+  const saveToLocalStorage = (e : React.MouseEvent) => {
+    e.preventDefault()
+    setValue(props)
   }
 
-  useEffect(()=>{
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-  }, [carrito])
-
-  const imageSrc = props.image
   const {name, image, price} = props
 
   return (
