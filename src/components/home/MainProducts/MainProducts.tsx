@@ -3,7 +3,8 @@ import { Card } from "app/components/shared/Card";
 import { ContainerMeru } from "app/components/shared/Container";
 
 
-type MainProductsProps = {}
+type MainProductsProps = {
+}
 
 
 
@@ -28,8 +29,6 @@ const MainProducts = async (props: MainProductsProps) => {
 
   //Directly to the service
   // const products = await getProducts()
-
-
 
   //Ask to the server
   const response = await fetch('http://localhost:3000/api')

@@ -8,26 +8,52 @@ type StoreProps = {}
 
 const Store = (props: StoreProps) => {
 
-  const [storedValue, setValue] = useLocalStorage('carrito', [])
+  const {state:storedValue, deleteValue, deleteUnit, addUnit, emptyCart} = useLocalStorage('carrito')
+
+  const handleDeleteValue = (idToDelete : string)  =>  {
+    deleteValue(idToDelete);
+  }
+
+  const handleDeleteUnit = (idToUpdate : string)=>{
+    deleteUnit(idToUpdate)
+  }
+
+  const handleAddUnit = (idToUpdate : string)=>{
+    addUnit(idToUpdate)
+  }
 
   return (
-    <section className="py-14 bg-grayLight  min-h-[800px]">
-      <ContainerMeru>
-        <section className="flex flex-col gap-y-6">
-        {
-          storedValue.length > 0 &&
-            storedValue.map((item : Product)=>{
-              return (
-              <article key={item.id}>
-                <CartProducts { ...item} />
-              </article>
-             )
-            })
-
+    <div>
+      {/* <Header stateCart={storedValue.length} /> */}
+      <section className="py-14 bg-grayLight  min-h-[800px]">
+        <ContainerMeru>
+          <h1 className="text-3xl font-semibold mb-5">Carrito</h1>
+          <section className="flex flex-col gap-y-6">
+          {
+            storedValue.length > 0 &&
+              storedValue.map((item : Product)=>{
+                return (
+                <article key={item.id}>
+                  <CartProducts { ...item} handleDeleteValue={handleDeleteValue} handleDeleteUnit={handleDeleteUnit} handleAddUnit={handleAddUnit}/>
+                </article>
+              )
+              })
+            }
+          {
+            storedValue.length > 0 ?
+            ( <div className="w-full flex justify-end items-end">
+              <button onClick={emptyCart}  className="mt-6 p-4 bg-grayMeru text-whiteMeru">Vaciar Carrito</button>
+              </div>) :
+              (<div className="w-full h-full flex items-center justify-center">
+                <p className="text-2xl sm:text-5xl"> Not Items in the cart</p>
+              </div>)
           }
-        </section>
-      </ContainerMeru>
-    </section>
+
+          </section>
+        </ContainerMeru>
+      </section>
+    </div>
+
   )
 }
 

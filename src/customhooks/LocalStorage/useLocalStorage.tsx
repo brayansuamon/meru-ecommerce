@@ -52,7 +52,63 @@ const useLocalStorage = (key : string, initialValue ?: any) => {
     }
   }
 
-  return [state, setValue]
+  const deleteValue = (valueToDelete : string ) => {
+    let newStore
+    try {
+
+      // Retrieve the current value from localStorage
+      const storedValue = JSON.parse(window.localStorage.getItem(key) || '[]');
+
+      newStore  = storedValue.filter((item: ProductLocal) => item.id !== valueToDelete)
+
+      window.localStorage.setItem(key, JSON.stringify(newStore))
+      setState(newStore)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const deleteUnit = (valueToUpdate : string) =>{
+    let newStore
+    try {
+
+      // Retrieve the current value from localStorage
+      const storedValue = JSON.parse(window.localStorage.getItem(key) || '[]');
+
+      newStore  = storedValue.map((item: ProductLocal) => item.id === valueToUpdate? { ...item, units: item.units > 1 ? item.units - 1 : item.units}  : item )
+
+      window.localStorage.setItem(key, JSON.stringify(newStore))
+      setState(newStore)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const addUnit = (valueToUpdate : string)=>{
+    let newStore
+    try {
+
+      // Retrieve the current value from localStorage
+      const storedValue = JSON.parse(window.localStorage.getItem(key) || '[]');
+
+      newStore  = storedValue.map((item: ProductLocal) => item.id === valueToUpdate? { ...item, units: item.units + 1}  : item )
+
+      window.localStorage.setItem(key, JSON.stringify(newStore))
+      setState(newStore)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const emptyCart = ()=>{
+    window.localStorage.setItem(key, '[]')
+    setState([])
+  }
+
+  return {state, setValue, deleteValue, deleteUnit, addUnit, emptyCart}
 }
 
 export { useLocalStorage };

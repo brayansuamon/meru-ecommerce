@@ -9,17 +9,16 @@ interface CardProps extends Product {
 
 const Card = (props: CardProps) => {
 
-  //  const initialState = window.localStorage.getItem('carrito')
+  const {state: value, setValue} = useLocalStorage('carrito', [])
 
-  const [value, setValue] = useLocalStorage('carrito', [])
-
+  const {name, image, price} = props
 
   const saveToLocalStorage = (e : React.MouseEvent) => {
     e.preventDefault()
     setValue(props)
   }
 
-  const {name, image, price} = props
+
 
   return (
     <article className="flex flex-col max-w-80 mx-auto rounded-lg border border-gray-300">

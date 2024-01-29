@@ -1,14 +1,15 @@
-import { useLocalStorage } from "app/customhooks/LocalStorage";
 import Image from "next/image";
 
-interface CartProductsProps extends Product {}
+interface CartProductsProps extends Product {
+  handleDeleteValue: (id: string) => void
+  handleDeleteUnit: (id: string) => void
+  handleAddUnit: (id: string) => void
+}
 
 const CartProducts = (props: CartProductsProps) => {
 
-  const [value, setValue] = useLocalStorage('carrito', [])
+  const { image, name, price, units, id, handleDeleteValue,handleDeleteUnit, handleAddUnit} =  props
 
-
-  const { image, name, price, units} =  props
 
   return (
    <article className="border rounded-lg">
@@ -30,14 +31,17 @@ const CartProducts = (props: CartProductsProps) => {
         <p className="text-2xl font-semibold">{price}</p>
       </div>
       <div className="flex flex-col gap-y-3">
-        <div className="relative w-full flex justify-end">
+        <button onClick={()=>handleDeleteValue(id)} className="relative w-full flex justify-end">
           <Image width={20} height={20} src={'/images/Close.svg'} alt={'close'} />
-        </div>
+        </button>
         <div className="flex items-center justify-center text-greenMeru">
+          <button onClick={()=>handleDeleteUnit(id)} className="relative w-3 h-3">
+          <Image fill src={'/images/Less.png'} alt={'close'} />
+          </button>
           <div className="px-4">{units}</div>
-          <div className="relative w-5 h-5">
+          <button onClick={()=>handleAddUnit(id)} className="relative w-5 h-5">
              <Image fill src={'/images/AddUnit.svg'} alt={'Add Unit'}/>
-          </div>
+          </button>
         </div>
       </div>
     </div>
